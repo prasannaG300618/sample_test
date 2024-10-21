@@ -3,7 +3,7 @@ agent any
 stages {
 stage('Checkout')
 { steps {
-git branch: 'main', url: 'https://github.com/yourusername/sample-app.git'
+git branch: 'main', url: 'https://github.com/prasannaG300618/sample_test.git'
 }
 }
 stage('Build')
@@ -17,15 +17,16 @@ steps {
 sh 'mvn test'
 }
 }
-// Add more stages as needed (e.g., Deploy, Publish
-Artifacts) }
+// Add more stages as needed (e.g., Deploy, PublishArtifacts) 
+}
 post {
 always
 {
-// Clean up or
-notify }
+// Clean up or notify 
+}
 success {
-// Notify success
+// Notify 
+success
 }
 failure {
 // Notify
