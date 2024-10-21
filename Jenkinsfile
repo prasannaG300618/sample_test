@@ -10,22 +10,19 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                bat 'mvn clean package'  // Use 'bat' for Windows
             }
         }
         
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'  // Use 'bat' for Windows
             }
         }
-
-        // Add more stages here (e.g., Deploy, PublishArtifacts)
     }
     
     post {
         always {
-            // Send clean-up email notification
             emailext(
                 subject: "Jenkins Job - Cleanup",
                 body: "The job has completed and the system is cleaning up.",
@@ -34,7 +31,6 @@ pipeline {
         }
         
         success {
-            // Send success notification
             emailext(
                 subject: "Jenkins Job - SUCCESS",
                 body: "Great news! The job was successful.",
@@ -43,7 +39,6 @@ pipeline {
         }
         
         failure {
-            // Send failure notification
             emailext(
                 subject: "Jenkins Job - FAILURE",
                 body: "Unfortunately, the job has failed. Please check the logs.",
