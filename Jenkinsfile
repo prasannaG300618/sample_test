@@ -25,11 +25,10 @@ always
 // Clean up or notify 
 }
 success {
-// Notify 
-success
+// Notify success
 }
 failure {
-// Notify
-failure }
+// Notify failure 
+}
 }
 }
